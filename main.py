@@ -21,8 +21,6 @@ from typing import Optional
 
 app = Flask(__name__)
 
-#app.config["MONGO_URI"] = "mongodb://ealgar:3l3n4@hodor.uv.es:27017/?authSource=admin"
-#app.config["MONGO_URI"] = "mongodb://localhost/remiss
 app.config["MONGO_URI"] = os.environ.get("MONGO_URL")
 
 
@@ -30,7 +28,6 @@ mongo.init_app(app)
 
 max_temporal_files = 10
 temporal_folder = '/app/Rscripts/data'
-#temporal_folder = '/home/administrador/Documentos/REMISS-api/Rscripts/data'
 
 
 class GraphParameters(BaseModel):
@@ -142,10 +139,8 @@ def r_graph1(query: GraphParameters):
 
     # call to r script with csv temp to create graph
     temporal_csv = get_latest_temporal_file()
-    #r_script = "/home/administrador/Documentos/REMISS-api/Rscripts/line_graph.R"
     r_script = "/app/Rscripts/line_graph.R"
     result = subprocess.run(["Rscript", r_script, temporal_csv], capture_output=True, text=True)
-    #print('-----')
     print(result.returncode, result.stdout, result.stderr)
     # Return HTML graph generated with script R
     return result.stdout
@@ -166,10 +161,8 @@ def r_graph2(query: GraphParameters):
     get_result_dataset(coll_data)  # create temporal.csv
 
     temporal_csv = get_latest_temporal_file()
-    #r_script = "/home/administrador/Documentos/REMISS-api/Rscripts/media_caracteristicas.R"
     r_script = "/app/Rscripts/media_caracteristicas.R"
     result = subprocess.run(["Rscript", r_script, temporal_csv], capture_output=True, text=True)
-    #print(result.returncode, result.stdout, result.stderr)
 
     return result.stdout
 
@@ -191,7 +184,6 @@ def r_graph3(query: GraphParameters):
 
     # call to r script with csv temp to create graph
     temporal_csv = get_latest_temporal_file()
-    #r_script = "/home/administrador/Documentos/REMISS-api/Rscripts/top_tweeteros.R"
     r_script = "/app/Rscripts/top_tweeteros.R"
     result = subprocess.run(["Rscript", r_script, temporal_csv], capture_output=True, text=True)
 
@@ -215,7 +207,6 @@ def r_graph4(query: GraphParameters):
     get_result_dataset(coll_data)  # create temporal.csv
 
     temporal_csv = get_latest_temporal_file()
-    #r_script = "/home/administrador/Documentos/REMISS-api/Rscripts/top_hashtags.R"
     r_script = "/app/Rscripts/top_hashtags.R"
     result = subprocess.run(["Rscript", r_script, temporal_csv], capture_output=True, text=True)
 
@@ -239,10 +230,8 @@ def r_graph5(query: GraphParameters):
 
     # call to r script with csv temp to create graph
     temporal_csv = get_latest_temporal_file()
-    #r_script = "/home/administrador/Documentos/REMISS-api/Rscripts/top_tweet_words.R"
     r_script = "/app/Rscripts/top_tweet_words.R"
     result = subprocess.run(["Rscript", r_script, temporal_csv], capture_output=True, text=True)
-    #print(result.returncode, result.stdout, result.stderr)
     return result.stdout
 
 
@@ -265,10 +254,8 @@ def r_graph6(query: GraphParameters):
 
     # call to r script with csv temp to create graph
     temporal_csv = get_latest_temporal_file()
-    #r_script = "/home/administrador/Documentos/REMISS-api/Rscripts/top_arañitas.R"
     r_script = "/app/Rscripts/top_arañitas.R"
     result = subprocess.run(["Rscript", r_script, temporal_csv], capture_output=True, text=True)
-    #print(result.returncode, result.stdout, result.stderr)
 
     return result.stdout
 
@@ -279,27 +266,6 @@ def get_databases():
     names = [i for i in list(mongoService.get_db_names()) if i not in quitar]
 
     return names
-
-
-@app.route('/api/upload', methods=['POST', 'GET'])
-def upload_mongo():
-    csv_file_path = '/media/nas/peerobs_sync/shared/REMISS/INMIGRACION/bcn15_final.csv'
-
-    '''
-    f = open('/media/nas/peerobs_sync/shared/REMISS/andalucia.json' , 'w')
-
-    with open(json_path, 'r', encoding='utf-8') as file:
-        json_data = json.load(file)
-        json.dump(json_data, f, ensure_ascii=False, indent=4)
-    '''
-    df = pd.read_csv(csv_file_path)
-
-    # Convertir el DataFrame de pandas a una lista de diccionarios (cada fila es un diccionario)
-    data = df.to_dict(orient='records')
-    
-    mongoService.create_dataset(data, 'uv_bcn15')
-
-    return 'ok'
 
 
 
