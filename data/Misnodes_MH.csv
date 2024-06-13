@@ -1,0 +1,26 @@
+id,label,group,color,shadow,shape
+0,Tópico 0,Topicos,lightblue,TRUE,box
+1,Tópico 1,Topicos,magenta,TRUE,box
+2,Tópico 2,Topicos,turquoise,TRUE,box
+3,Tópico 3,Topicos,salmon,TRUE,box
+4,Tópico 4,Topicos,gold,TRUE,box
+5,amenaza,Palabras,White,FALSE,ellipse
+6,iglesias,Palabras,White,FALSE,ellipse
+7,navaja,Palabras,White,FALSE,ellipse
+8,maroto,Palabras,White,FALSE,ellipse
+9,muerte,Palabras,White,FALSE,ellipse
+10,pucherazo,Palabras,White,FALSE,ellipse
+11,vox,Palabras,White,FALSE,ellipse
+12,correos,Palabras,White,FALSE,ellipse
+13,elecciones,Palabras,White,FALSE,ellipse
+14,zendal,Palabras,White,FALSE,ellipse
+15,madrid,Palabras,White,FALSE,ellipse
+16,contagios,Palabras,White,FALSE,ellipse
+17,hospital,Palabras,White,FALSE,ellipse
+18,fraude,Palabras,White,FALSE,ellipse
+19,indra,Palabras,White,FALSE,ellipse
+20,sueldo,Palabras,White,FALSE,ellipse
+21,vitalicio,Palabras,White,FALSE,ellipse
+22,petro,Palabras,White,FALSE,ellipse
+23,4m,Palabras,White,FALSE,ellipse
+24,ayuso,Palabras,White,FALSE,ellipse

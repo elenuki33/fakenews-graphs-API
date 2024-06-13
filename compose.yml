@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  remiss-uv-api:
+    image: laiauv/remiss-api:v3
+    ports:
+      - "5005:5006"
+    environment:
+      - MONGO_URL=mongodb://172.17.0.1:27017/remiss?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.0.0
+
+  remiss-uv-dashboard:
+    image: laiauv/remiss-shiny:v4
+    ports:
+      - "8180:8180"
+    environment:
+      - MONGO_URL=mongodb://172.17.0.1:27017/remiss?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.0.0

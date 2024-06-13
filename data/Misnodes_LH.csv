@@ -1,0 +1,18 @@
+id,label,group,color,shadow,shape
+0,Tópico 0,Topicos,lightblue,TRUE,box
+1,Tópico 1,Topicos,magenta,TRUE,box
+2,Tópico 2,Topicos,turquoise,TRUE,box
+3,Tópico 3,Topicos,salmon,TRUE,box
+4,Tópico 4,Topicos,gold,TRUE,box
+5,castillayleon,Palabras,White,FALSE,ellipse
+6,4m,Palabras,White,FALSE,ellipse
+7,presidentilla,Palabras,White,FALSE,ellipse
+8,elecciones,Palabras,White,FALSE,ellipse
+9,vox,Palabras,White,FALSE,ellipse
+10,correos,Palabras,White,FALSE,ellipse
+11,pucherazo,Palabras,White,FALSE,ellipse
+12,tickets,Palabras,White,FALSE,ellipse
+13,vota,Palabras,White,FALSE,ellipse
+14,zendal,Palabras,White,FALSE,ellipse
+15,madrid,Palabras,White,FALSE,ellipse
+16,contagios,Palabras,White,FALSE,ellipse

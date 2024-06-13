@@ -1,0 +1,98 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "title": "REMISS API",
+      "version": "1.0.0"
+    },
+    "paths": {
+      "/": {
+        "get": {
+          "description": "Returns message showing app is up",
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful operation"
+            }
+          }
+        }
+      },
+      "/api/get_data": {
+        "get": {
+          "description": "Get dataset from MongoDB",
+          "consumes": [
+            "application/json"
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "name",
+              "in": "body",
+              "description": "Dataset name (castleon, madrid, catalunya, andalucia)",
+              "required": false,
+              "schema": {
+                "$ref": "#/definitions/AccessData"
+              }
+            },
+            {
+              "name": "window",
+              "in": "body",
+              "description": "Number of days",
+              "required": false,
+              "schema": {
+                "$ref": "#/definitions/AccessData"
+              }
+            },
+            {
+              "name": "start",
+              "in": "body",
+              "description": "JSON data for the api",
+              "required": false,
+              "schema": {
+                "$ref": "#/definitions/AccessData"
+              }
+            },
+            {
+              "name": "end",
+              "in": "body",
+              "description": "JSON data for the api",
+              "required": false,
+              "schema": {
+                "$ref": "#/definitions/AccessData"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "User granted access"
+            },
+            "400": {
+              "description": "Invalid request data"
+            }
+          }
+        }
+      }
+    },
+    "definitions": {
+      "AccessData": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "window": {
+            "type": "string"
+          },
+          "start": {
+            "type": "string"
+          },
+          "end": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }

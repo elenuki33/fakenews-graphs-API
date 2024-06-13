@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>API de Flask y R</title>
+</head>
+<body>
+    <h1>Ejecutar Script R y Mostrar Resultado</h1>
+    <form method="POST" action="/run_r_script">
+        <button type="submit">Ejecutar Script R</button>
+    </form>
+    <div id="result" style="margin-top: 20px;"></div>
+    <script>
+        document.querySelector('form').addEventListener('submit', async (event) => {
+            event.preventDefault();
+            const response = await fetch('/run_r_script', { method: 'POST' });
+            const result = await response.text();
+            document.querySelector('#result').innerHTML = result;
+        });
+    </script>
+</body>
+</html>
