@@ -1,5 +1,4 @@
 #! /usr/bin/Rscript
-#setwd("/home/administrador/Documentos/REMISS-api/Rscripts")
 setwd("/app/Rscripts")
 
 library(readr)
@@ -13,7 +12,6 @@ library(tidyr)
 library(purrr)
 library(stringr)
 library(stringi)
-#(emojifont)
 library(visNetwork)
 library(htmlwidgets)
 library(tm)
