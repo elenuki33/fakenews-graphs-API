@@ -1,5 +1,4 @@
 #! /usr/bin/Rscript
-#setwd("/home/administrador/Documentos/REMISS-api/Rscripts")
 setwd("/app/Rscripts")
 
 library(readr)
